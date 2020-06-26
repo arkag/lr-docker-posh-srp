@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<remv1:Remediation-Plugin xmlns:remv1="RemediationVersion1.xsd" Name="Docker Container and Image Remediation" IsLogRhythmPlugin="false" Guid="c4a90b59-0b9c-486f-afb8-3c340fc5381d" Version="1">
+
+  <remv1:Action Name="Docker Image Remove" Command="powershell.exe">
+  
+    <remv1:ConstantParameter Name="Script" Switch="-File Remove-DockerImage.ps1 " Order="1" />
+    
+    <remv1:StringParameter Name="Target Host" Switch="-TargetHost " Order="2">
+        <remv1:DefaultInput>
+            <remv1:StaticInput Value="docker-host" />
+        </remv1:DefaultInput>
+    </remv1:StringParameter>
+
+    <remv1:StringParameter Name="Target User" Switch="-TargetUser " Order="3">
+        <remv1:DefaultInput>
+            <remv1:StaticInput Value="logrhythm" />
+        </remv1:DefaultInput>
+    </remv1:StringParameter>
+
+    <remv1:StringParameter Name="Private Key Path" Switch="-PrivKeyPath " Order="4">
+        <remv1:DefaultInput>
+            <remv1:StaticInput Value="C:\Tools\ssh\privatekey" />
+        </remv1:DefaultInput>
+    </remv1:StringParameter>
+
+    <remv1:StringParameter Name="Object" Switch="-Object " Order="5">
+        <remv1:DefaultInput>
+            <remv1:StaticInput Value="objecthash" />
+        </remv1:DefaultInput>
+    </remv1:StringParameter>
+    
+  </remv1:Action> 
+
+  <remv1:Action Name="Docker Container Stop" Command="powershell.exe">
+  
+    <remv1:ConstantParameter Name="Script" Switch="-File Stop-DockerContainer.ps1 " Order="1" />
+    
+    <remv1:StringParameter Name="Target Host" Switch="-TargetHost " Order="2">
+        <remv1:DefaultInput>
+            <remv1:StaticInput Value="docker-host" />
+        </remv1:DefaultInput>
+    </remv1:StringParameter>
+
+    <remv1:StringParameter Name="Target User" Switch="-TargetUser " Order="3">
+        <remv1:DefaultInput>
+            <remv1:StaticInput Value="logrhythm" />
+        </remv1:DefaultInput>
+    </remv1:StringParameter>
+
+    <remv1:StringParameter Name="Private Key Path" Switch="-PrivKeyPath " Order="4">
+        <remv1:DefaultInput>
+            <remv1:StaticInput Value="C:\Tools\ssh\privatekey" />
+        </remv1:DefaultInput>
+    </remv1:StringParameter>
+
+    <remv1:StringParameter Name="Object" Switch="-Object " Order="5">
+        <remv1:DefaultInput>
+            <remv1:StaticInput Value="objecthash" />
+        </remv1:DefaultInput>
+    </remv1:StringParameter>
+    
+  </remv1:Action> 
+
+ </remv1:Remediation-Plugin>
