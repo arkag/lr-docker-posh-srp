@@ -1,0 +1,13 @@
+/var/log/docker/events.log 
+{
+    daily
+    size 100k
+    rotate 30
+    compress
+    prerotate
+        systemctl stop docker-events.service
+    endscript
+    postrotate
+        systemctl start docker-events.service
+    endscript
+}

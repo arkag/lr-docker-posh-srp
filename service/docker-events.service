@@ -1,0 +1,13 @@
+[Unit]
+Description=Docker Events To Flat File
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/usr/bin
+ExecStart=/bin/sh -c "/usr/bin/docker events | /usr/bin/tee -a /var/log/docker/events.log"
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
