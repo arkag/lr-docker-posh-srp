@@ -32,6 +32,7 @@ From the LogRhythm Console:
     * Base-rule Regular Expression: `^.*?\s(?<action>.*?\s.*?)\s(?<object>.*?)\s\(com.docker.compose.config-hash=(?<hash>.*?),\s(com.docker.compose.container-number=(?<processid>.*?)),\s(?<status>com.docker.compose.oneoff=.*?),\s(?<reason>com.docker.compose.project=.*?),\s(?<parentprocessid>com.docker.compose.project.config_files=.*?),\s(?<parentprocesspath>com.docker.compose.project.working_dir=.*?),\s(com.docker.compose.service=(?<process>.*?)),\s(?<version>com.docker.compose.version=.*?),\simage=(?<objecttype>.*?),\sname=(?<objectname>.*?)\)`
     * Sub-Rules:
         | Rule Name         | Common Event              | action Equal To (=)   |
+        | :---------------- | :-----------------------: | --------------------: |
         | Container Kill    | Process/Service Stopping  | container kill        |
         | Container Destroy | Process/Service Stopped   | container destroy     |
         | Container Delete  | Process/Service Stopped   | container delete      |
