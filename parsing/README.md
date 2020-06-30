@@ -14,7 +14,7 @@ From the LogRhythm Console:
 2. Right-click > New
 3. Log Source Type Properties
     | Name                      | Abbreviation  | Log Format    | Brief Description                                                                     |
-    | :----                     | :------------ | :------------ | :----------------                                                                     |
+    | :------------------------ | :------------ | :------------ | :------------------------------------------------------------------------------------ |
     | Flat File - Docker Events | Docker Events | Text File     | Docker Events turned into a systemd service and ingested as a flat file by an SMA.    |
 4. Deployment Manager > Log Processing Policies
 5. Right-click > New
@@ -25,7 +25,7 @@ From the LogRhythm Console:
 
 1. Tools > Knowledge > MPE Rule Builder
     | Rule Name                                     | Common Event          | Rule Status   | Log Message Source Type Associations  | Base-rule Regular Expression  |
-    | :-                                            | :-                    | :-            | :-                                    | :-                            |
+    | :-------------------------------------------- | :-------------------- | :------------ | :------------------------------------ | :---------------------------- |
     | Flat File - Docker Events - Docker Compose    | General Information   | Production    | Flat File - Docker Events             | `^.*?\s(?<action>.*?\s.*?)\s(?<object>.*?)\s\(com.docker.compose.config-hash=(?<hash>.*?),\s(com.docker.compose.container-number=(?<processid>.*?)),\s(?<status>com.docker.compose.oneoff=.*?),\s(?<reason>com.docker.compose.project=.*?),\s(?<parentprocessid>com.docker.compose.project.config_files=.*?),\s(?<parentprocesspath>com.docker.compose.project.working_dir=.*?),\s(com.docker.compose.service=(?<process>.*?)),\s(?<version>com.docker.compose.version=.*?),\simage=(?<objecttype>.*?),\sname=(?<objectname>.*?)\)` |
     * Sub-Rules:
         | Rule Name         | Common Event              | action Equal To (=)   |
@@ -40,7 +40,7 @@ From the LogRhythm Console:
     * Top left corner below file > hit save icon
 2. Top left corner next to save icon > hit plus icon
     | Rule Name                                         | Common Event          | Rule Status   | Log Message Source Type Associations  | Base-rule Regular Expression  |
-    | :-                                                | :-                    | :-            | :-                                    | :-                            |
+    | :------------------------------------------------ | :-------------------- | :------------ | :------------------------------------ | :---------------------------- |
     | Flat File - Docker Events                         | General Information   | Production    | Flat File - Docker Events             | `^.*?\s(?<action>.*?\s.*?)\s(?<object>.*?)\s\(((container=(?<hash>.*?),\s)?(exitCode=(?<responsecode>\d+),\s)?(image=(?<objecttype>.*?),\s)?(maintainer=(?<login>.*?),\s)?(name=(?<objectname>.*?))?(,\stype=(?<objecttype>.*?))?)\)` |
     * Sub-Rules:
         | Rule Name             | Common Event                                  | action Equal To (=)   |
@@ -62,7 +62,7 @@ From the LogRhythm Console:
     * Top left corner below file > hit save icon
 3. Top left corner next to save icon > hit plus icon
     | Rule Name                             | Common Event          | Rule Status   | Log Message Source Type Associations  | Base-rule Regular Expression  |
-    | :-                                    | :-                    | :-            | :-                                    | :-                            |
+    | :------------------------------------ | :-------------------- | :------------ | :------------------------------------ | :---------------------------- |
     | Flat File - Docker Events - Catchall  | General Information   | Production    | Flat File - Docker Events             | `^.*?\s(?<action>.*?\s.*?)\s<object>\s\((?<vendorinfo>.*?)\)` |
     * Sub-Rules: N/A
     * Top left corner below file > hit save icon
