@@ -13,10 +13,9 @@ From the LogRhythm Console:
 1. Tools > Knowledge > Log Source Type Manager 
 2. Right-click > New
 3. Log Source Type Properties
-    * Name: Flat File - Docker Events
-    * Abbreviation: Docker Events
-    * Log Format: Text File
-    * Brief Description: Docker Events turned into a systemd service and ingested as a flat file by an SMA.
+    | Name                      | Abbreviation  | Log Format    | Brief Description                                                                     |
+    | :----                     | :------------ | :------------ | :----------------                                                                     |
+    | Flat File - Docker Events | Docker Events | Text File     | Docker Events turned into a systemd service and ingested as a flat file by an SMA.    |
 4. Deployment Manager > Log Processing Policies
 5. Right-click > New
 6. Custom > Search for Docker > Double Click on Flat File - Docker Events
@@ -25,11 +24,9 @@ From the LogRhythm Console:
 ## Custom MPE Rules and Sub-rules
 
 1. Tools > Knowledge > MPE Rule Builder
-    * Rule Name: Flat File - Docker Events - Docker Compose
-    * Common Event: General Information
-    * Rule Status: Production
-    * Log Message Source Type Associations: Flat File - Docker Events
-    * Base-rule Regular Expression: `^.*?\s(?<action>.*?\s.*?)\s(?<object>.*?)\s\(com.docker.compose.config-hash=(?<hash>.*?),\s(com.docker.compose.container-number=(?<processid>.*?)),\s(?<status>com.docker.compose.oneoff=.*?),\s(?<reason>com.docker.compose.project=.*?),\s(?<parentprocessid>com.docker.compose.project.config_files=.*?),\s(?<parentprocesspath>com.docker.compose.project.working_dir=.*?),\s(com.docker.compose.service=(?<process>.*?)),\s(?<version>com.docker.compose.version=.*?),\simage=(?<objecttype>.*?),\sname=(?<objectname>.*?)\)`
+    | Rule Name                                     | Common Event          | Rule Status   | Log Message Source Type Associations  | Base-rule Regular Expression  |
+    | :-                                            | :-                    | :-            | :-                                    | :-                            |
+    | Flat File - Docker Events - Docker Compose    | General Information   | Production    | Flat File - Docker Events             | `^.*?\s(?<action>.*?\s.*?)\s(?<object>.*?)\s\(com.docker.compose.config-hash=(?<hash>.*?),\s(com.docker.compose.container-number=(?<processid>.*?)),\s(?<status>com.docker.compose.oneoff=.*?),\s(?<reason>com.docker.compose.project=.*?),\s(?<parentprocessid>com.docker.compose.project.config_files=.*?),\s(?<parentprocesspath>com.docker.compose.project.working_dir=.*?),\s(com.docker.compose.service=(?<process>.*?)),\s(?<version>com.docker.compose.version=.*?),\simage=(?<objecttype>.*?),\sname=(?<objectname>.*?)\)` |
     * Sub-Rules:
         | Rule Name         | Common Event              | action Equal To (=)   |
         | :---------------- | :------------------------ | :-------------------- |
@@ -42,11 +39,9 @@ From the LogRhythm Console:
     * Right-click in Sub-Rules section > Synchronize with Base-rule > Rule Status
     * Top left corner below file > hit save icon
 2. Top left corner next to save icon > hit plus icon
-    * Rule Name: Flat File - Docker Events
-    * Common Event: General Information
-    * Rule Status: Production
-    * Log Message Source Type Associations: Flat File - Docker Events
-    * Base-rule Regular Expression: `^.*?\s(?<action>.*?\s.*?)\s(?<object>.*?)\s\(((container=(?<hash>.*?),\s)?(exitCode=(?<responsecode>\d+),\s)?(image=(?<objecttype>.*?),\s)?(maintainer=(?<login>.*?),\s)?(name=(?<objectname>.*?))?(,\stype=(?<objecttype>.*?))?)\)`
+    | Rule Name                                         | Common Event          | Rule Status   | Log Message Source Type Associations  | Base-rule Regular Expression  |
+    | :-                                                | :-                    | :-            | :-                                    | :-                            |
+    | Flat File - Docker Events                         | General Information   | Production    | Flat File - Docker Events             | `^.*?\s(?<action>.*?\s.*?)\s(?<object>.*?)\s\(((container=(?<hash>.*?),\s)?(exitCode=(?<responsecode>\d+),\s)?(image=(?<objecttype>.*?),\s)?(maintainer=(?<login>.*?),\s)?(name=(?<objectname>.*?))?(,\stype=(?<objecttype>.*?))?)\)` |
     * Sub-Rules:
         | Rule Name             | Common Event                                  | action Equal To (=)   |
         | :----------------     | :------------------------                     | :-------------------- |
@@ -66,11 +61,9 @@ From the LogRhythm Console:
     * Right-click in Sub-Rules section > Synchronize with Base-rule > Rule Status
     * Top left corner below file > hit save icon
 3. Top left corner next to save icon > hit plus icon
-    * Rule Name: Flat File - Docker Events - Catchall
-    * Common Event: General Information
-    * Rule Status: Production
-    * Log Message Source Type Associations: Flat File - Docker Events
-    * Base-rule Regular Expression: `^.*?\s(?<action>.*?\s.*?)\s<object>\s\((?<vendorinfo>.*?)\)`
+    | Rule Name                             | Common Event          | Rule Status   | Log Message Source Type Associations  | Base-rule Regular Expression  |
+    | :-                                    | :-                    | :-            | :-                                    | :-                            |
+    | Flat File - Docker Events - Catchall  | General Information   | Production    | Flat File - Docker Events             | `^.*?\s(?<action>.*?\s.*?)\s<object>\s\((?<vendorinfo>.*?)\)` |
     * Sub-Rules: N/A
     * Top left corner below file > hit save icon
 4. Deployment Manager > Log Processing Policies > Double-click on Flat File - Docker Events
