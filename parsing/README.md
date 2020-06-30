@@ -32,7 +32,7 @@ From the LogRhythm Console:
     * Base-rule Regular Expression: `^.*?\s(?<action>.*?\s.*?)\s(?<object>.*?)\s\(com.docker.compose.config-hash=(?<hash>.*?),\s(com.docker.compose.container-number=(?<processid>.*?)),\s(?<status>com.docker.compose.oneoff=.*?),\s(?<reason>com.docker.compose.project=.*?),\s(?<parentprocessid>com.docker.compose.project.config_files=.*?),\s(?<parentprocesspath>com.docker.compose.project.working_dir=.*?),\s(com.docker.compose.service=(?<process>.*?)),\s(?<version>com.docker.compose.version=.*?),\simage=(?<objecttype>.*?),\sname=(?<objectname>.*?)\)`
     * Sub-Rules:
         | Rule Name         | Common Event              | action Equal To (=)   |
-        | :---------------- | :-----------------------: | --------------------: |
+        | :---------------- | :------------------------ | :-------------------- |
         | Container Kill    | Process/Service Stopping  | container kill        |
         | Container Destroy | Process/Service Stopped   | container destroy     |
         | Container Delete  | Process/Service Stopped   | container delete      |
@@ -48,58 +48,21 @@ From the LogRhythm Console:
     * Log Message Source Type Associations: Flat File - Docker Events
     * Base-rule Regular Expression: `^.*?\s(?<action>.*?\s.*?)\s(?<object>.*?)\s\(((container=(?<hash>.*?),\s)?(exitCode=(?<responsecode>\d+),\s)?(image=(?<objecttype>.*?),\s)?(maintainer=(?<login>.*?),\s)?(name=(?<objectname>.*?))?(,\stype=(?<objecttype>.*?))?)\)`
     * Sub-Rules:
-        -   Sub-Rule
-            + Rule Name: Container Attach
-            + Common Event: Attach Event
-            + action Equal To (=) container attach
-        -   Sub-Rule
-            + Rule Name: Container Create
-            + Common Event: Process/Service Starting
-            + action Equal To (=) container create
-        -   Sub-Rule
-            + Rule Name: Container Destroy
-            + Common Event: Process/Service Stopped
-            + action Equal To (=) container destroy
-        -   Sub-Rule
-            + Rule Name: Container Die
-            + Common Event: Process/Service Stopped
-            + action Equal To (=) container die
-        -   Sub-Rule
-            + Rule Name: Container Kill
-            + Common Event: Process/Service Stopping
-            + action Equal To (=) container kill
-        -   Sub-Rule
-            + Rule Name: Container Start
-            + Common Event: Process/Service Started
-            + action Equal To (=) container start
-        -   Sub-Rule
-            + Rule Name: Container Stop
-            + Common Event: Process/Service Stopping
-            + action Equal To (=) container stop
-        -   Sub-Rule
-            + Rule Name: Image Delete
-            + Common Event: Resource Terminated
-            + action Equal To (=) image delete
-        -   Sub-Rule
-            + Rule Name: Image Pull
-            + Common Event: Saving New System Software Image To Flash
-            + action Equal To (=) image pull
-        -   Sub-Rule
-            + Rule Name: Image Tag
-            + Common Event: General Operations
-            + action Equal To (=) image tag
-        -   Sub-Rule
-            + Rule Name: Image Untag
-            + Common Event: General Operations
-            + action Equal To (=) image untag
-        -   Sub-Rule
-            + Rule Name: Network Connect
-            + Common Event: Network Connection Established
-            + action Equal To (=) network connect
-        -   Sub-Rule
-            + Rule Name: Network Disconnect
-            + Common Event: Client Disconnected
-            + action Equal To (=) network disconnect
+        | Rule Name             | Common Event                                  | action Equal To (=)   |
+        | :----------------     | :------------------------                     | :-------------------- |
+        | Container Attach      | Attach Event                                  | container attach      |
+        | Container Create      | Process/Service Starting                      | container create      |
+        | Container Destroy     | Process/Service Stopped                       | container destroy     |
+        | Container Die         | Process/Service Stopped                       | container die         |
+        | Container Kill        | Process/Service Stopping                      | container kill        |
+        | Container Start       | Process/Service Started                       | container start       |
+        | Container Stop        | Process/Service Stopping                      | container stop        |
+        | Image Delete          | Resource Terminated                           | image delete          |
+        | Image Pull            | Saving New System Software Image To Flash     | image pull            |
+        | Image Tag             | General Operations                            | image tag             |
+        | Image Untag           | General Operations                            | image untag           |
+        | Network Connect       | Network Connection Established                | network connect       |
+        | Network Disconnect    | Client Disconnected                           | network disconnect    |
     * Right-click in Sub-Rules section > Synchronize with Base-rule > Rule Status
     * Top left corner below file > hit save icon
 3. Top left corner next to save icon > hit plus icon
