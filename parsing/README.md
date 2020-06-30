@@ -31,30 +31,13 @@ From the LogRhythm Console:
     * Log Message Source Type Associations: Flat File - Docker Events
     * Base-rule Regular Expression: `^.*?\s(?<action>.*?\s.*?)\s(?<object>.*?)\s\(com.docker.compose.config-hash=(?<hash>.*?),\s(com.docker.compose.container-number=(?<processid>.*?)),\s(?<status>com.docker.compose.oneoff=.*?),\s(?<reason>com.docker.compose.project=.*?),\s(?<parentprocessid>com.docker.compose.project.config_files=.*?),\s(?<parentprocesspath>com.docker.compose.project.working_dir=.*?),\s(com.docker.compose.service=(?<process>.*?)),\s(?<version>com.docker.compose.version=.*?),\simage=(?<objecttype>.*?),\sname=(?<objectname>.*?)\)`
     * Sub-Rules:
-        -   Sub-Rule
-            + Rule Name: Container Kill
-            + Common Event: Process/Service Stopping
-            + action Equal To (=) container kill
-        -   Sub-Rule
-            + Rule Name: Container Destroy
-            + Common Event: Process/Service Stopped
-            + action Equal To (=) container destroy
-        -   Sub-Rule
-            + Rule Name: Container Delete
-            + Common Event: Process/Service Stopped
-            + action Equal To (=) container delete
-        -   Sub-Rule
-            + Rule Name: Container Die
-            + Common Event: Process/Service Stopped
-            + action Equal To (=) container die
-        -   Sub-Rule
-            + Rule Name: Container Create
-            + Common Event: Process/Service Starting
-            + action Equal To (=) container create
-        -   Sub-Rule
-            + Rule Name: Container Start
-            + Common Event: Process/Service Started
-            + action Equal To (=) container start
+        | Rule Name         | Common Event              | action Equal To (=)   |
+        | Container Kill    | Process/Service Stopping  | container kill        |
+        | Container Destroy | Process/Service Stopped   | container destroy     |
+        | Container Delete  | Process/Service Stopped   | container delete      |
+        | Container Die     | Process/Service Stopped   | container die         |
+        | Container Create  | Process/Service Starting  | container create      |
+        | Container Start   | Process/Service Started   | container start       |
     * Right-click in Sub-Rules section > Synchronize with Base-rule > Rule Status
     * Top left corner below file > hit save icon
 2. Top left corner next to save icon > hit plus icon
