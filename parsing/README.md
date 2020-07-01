@@ -23,12 +23,17 @@ From the LogRhythm Console:
 
 ## Custom MPE Rules and Sub-rules
 
+Here is a Sub-Rule window, for reference:
+![](screenshots/MPESubRuleExample.png?raw=true)
+
+From the LogRhythm Console: 
+
 1. Tools > Knowledge > MPE Rule Builder
     | Rule Name                                     | Common Event          | Rule Status   | Log Message Source Type Associations  | Base-rule Regular Expression  |
     | :-------------------------------------------- | :-------------------- | :------------ | :------------------------------------ | :---------------------------- |
-    | Flat File - Docker Events - Docker Compose    | General Information   | Production    | Flat File - Docker Events             | `^.*?\s(?<action>.*?\s.*?)\s(?<object>.*?)\s\(com.docker.compose.config-hash=(?<hash>.*?),\s(com.docker.compose.container-number=(?<processid>.*?)),\s(?<status>com.docker.compose.oneoff=.*?),\s(?<reason>com.docker.compose.project=.*?),\s(?<parentprocessid>com.docker.compose.project.config_files=.*?),\s(?<parentprocesspath>com.docker.compose.project.working_dir=.*?),\s(com.docker.compose.service=(?<process>.*?)),\s(?<version>com.docker.compose.version=.*?),\simage=(?<objecttype>.*?),\sname=(?<objectname>.*?)\)` |
+    | Flat File - Docker Events - Docker Compose    | General Information   | Production    | Flat File - Docker Events             | `^.*?\s(?<tag1.action>.*?\s.*?)\s(?<object>.*?)\s\(com.docker.compose.config-hash=(?<hash>.*?),\s(com.docker.compose.container-number=(?<processid>.*?)),\s(?<status>com.docker.compose.oneoff=.*?),\s(?<reason>com.docker.compose.project=.*?),\s(?<parentprocessid>com.docker.compose.project.config_files=.*?),\s(?<parentprocesspath>com.docker.compose.project.working_dir=.*?),\s(com.docker.compose.service=(?<process>.*?)),\s(?<version>com.docker.compose.version=.*?),\simage=(?<objecttype>.*?),\sname=(?<objectname>.*?)\)` |
     * Sub-Rules:
-        | Rule Name         | Common Event              | action Equal To (=)   |
+        | Rule Name         | Common Event              | tag1 Equal To (=)     |
         | :---------------- | :------------------------ | :-------------------- |
         | Container Kill    | Process/Service Stopping  | container kill        |
         | Container Destroy | Process/Service Stopped   | container destroy     |
@@ -36,14 +41,15 @@ From the LogRhythm Console:
         | Container Die     | Process/Service Stopped   | container die         |
         | Container Create  | Process/Service Starting  | container create      |
         | Container Start   | Process/Service Started   | container start       |
+        | Container Stop    | Process/Service Stopped   | container stop        |
     * Right-click in Sub-Rules section > Synchronize with Base-rule > Rule Status
     * Top left corner below file > hit save icon
 2. Top left corner next to save icon > hit plus icon
     | Rule Name                                         | Common Event          | Rule Status   | Log Message Source Type Associations  | Base-rule Regular Expression  |
     | :------------------------------------------------ | :-------------------- | :------------ | :------------------------------------ | :---------------------------- |
-    | Flat File - Docker Events                         | General Information   | Production    | Flat File - Docker Events             | `^.*?\s(?<action>.*?\s.*?)\s(?<object>.*?)\s\(((container=(?<hash>.*?),\s)?(exitCode=(?<responsecode>\d+),\s)?(image=(?<objecttype>.*?),\s)?(maintainer=(?<login>.*?),\s)?(name=(?<objectname>.*?))?(,\stype=(?<objecttype>.*?))?)\)` |
+    | Flat File - Docker Events                         | General Information   | Production    | Flat File - Docker Events             | `^.*?\s(?<tag1.action>.*?\s.*?)\s(?<object>.*?)\s\(((container=(?<hash>.*?),\s)?(exitCode=(?<responsecode>\d+),\s)?(image=(?<objecttype>.*?),\s)?(maintainer=(?<login>.*?),\s)?(name=(?<objectname>.*?))?(,\stype=(?<objecttype>.*?))?)\)` |
     * Sub-Rules:
-        | Rule Name             | Common Event                                  | action Equal To (=)   |
+        | Rule Name             | Common Event                                  | tag1 Equal To (=)     |
         | :----------------     | :------------------------                     | :-------------------- |
         | Container Attach      | Attach Event                                  | container attach      |
         | Container Create      | Process/Service Starting                      | container create      |
@@ -63,7 +69,7 @@ From the LogRhythm Console:
 3. Top left corner next to save icon > hit plus icon
     | Rule Name                             | Common Event          | Rule Status   | Log Message Source Type Associations  | Base-rule Regular Expression  |
     | :------------------------------------ | :-------------------- | :------------ | :------------------------------------ | :---------------------------- |
-    | Flat File - Docker Events - Catchall  | General Information   | Production    | Flat File - Docker Events             | `^.*?\s(?<action>.*?\s.*?)\s<object>\s\((?<vendorinfo>.*?)\)` |
+    | Flat File - Docker Events - Catchall  | General Information   | Production    | Flat File - Docker Events             | `^.*?\s(?<tag1.action>.*?\s.*?)\s<object>\s\((?<vendorinfo>.*?)\)` |
     * Sub-Rules: N/A
     * Top left corner below file > hit save icon
 4. Deployment Manager > Log Processing Policies > Double-click on Flat File - Docker Events
