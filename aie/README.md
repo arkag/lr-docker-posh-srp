@@ -44,7 +44,7 @@ For example:
 
 In order to enable this feature, you'll need to go into the AIE rule and configure a new "action". Below is a screenshot of my current set up, with explanations for how it's configured. You'd want to do this for both of the Cryptominer alarms, but they'll be very similar.
 
-### Docker Cryptominer Activity Dectected SRP configuration
+### Docker Cryptominer Activity Detected SRP configuration
 ![](screenshots/DockerCryptominerActivityDetectedSRPConfig.png?raw=true)
 
 * New Action
