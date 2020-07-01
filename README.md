@@ -15,7 +15,7 @@ Have questions, concerns, or would like to request a feature? Toss these into an
 - SSH key access from a Windows LR SMA (whatever host this is to be run on) to your Docker Node(s)
 - The will of fire
 
-# Current Limitations (to be fixed)
+# Current Limitations (to be fixed, eventually)
 
 - [ ] Hosts are not prepended to the events logs, making it difficult to support more than one Docker host at this time
 
